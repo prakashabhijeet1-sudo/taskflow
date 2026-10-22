@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Products - StyleKart</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">StyleKart</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Men</a>
+        <a href="products.html">Women</a>
+        <a href="products.html">Kids</a>
+        <a href="products.html">Beauty</a>
+    </nav>
+
+    <div class="search">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search products..."
+            onkeyup="searchProducts()"
+        >
+
+        <button>🔍</button>
+
+    </div>
+
+    <div class="header-icons">
+
+        <a href="login.html">👤</a>
+        <a href="#">❤️</a>
+        <a href="cart.html">🛒</a>
+
+    </div>
+
+</header>
+
+
+<div class="products-page">
+
+    <aside>
+
+        <h3>Filters</h3>
+
+        <hr>
+
+        <h4>Category</h4>
+
+        <label>
+            <input type="checkbox">
+            T-Shirts
+        </label>
+
+        <label>
+            <input type="checkbox">
+            Shirts
+        </label>
+
+        <label>
+            <input type="checkbox">
+            Dresses
+        </label>
+
+        <label>
+            <input type="checkbox">
+            Shoes
+        </label>
+
+        <hr>
+
+        <h4>Price</h4>
+
+        <label>
+            <input type="checkbox">
+            Under ₹500
+        </label>
+
+        <label>
+            <input type="checkbox">
+            ₹500 - ₹1000
+        </label>
+
+        <label>
+            <input type="checkbox">
+            ₹1000 - ₹2000
+        </label>
+
+        <label>
+            <input type="checkbox">
+            Above ₹2000
+        </label>
+
+    </aside>
+
+
+    <main>
+
+        <div class="products-header">
+
+            <h2>Fashion Products</h2>
+
+            <select>
+                <option>Sort By</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+                <option>Popularity</option>
+            </select>
+
+        </div>
+
+
+        <div class="products" id="productList">
+
+            <div class="product-card">
+
+                <div class="product-image">👕</div>
+
+                <h3>Premium T-Shirt</h3>
+
+                <p class="brand">Roadster</p>
+
+                <p>
+                    <span class="price">₹599</span>
+                    <span class="old-price">₹999</span>
+                </p>
+
+                <button onclick="addToCart('Premium T-Shirt',599)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">👔</div>
+
+                <h3>Formal Shirt</h3>
+
+                <p class="brand">Peter England</p>
+
+                <p>
+                    <span class="price">₹799</span>
+                    <span class="old-price">₹1299</span>
+                </p>
+
+                <button onclick="addToCart('Formal Shirt',799)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">👗</div>
+
+                <h3>Floral Dress</h3>
+
+                <p class="brand">DressBerry</p>
+
+                <p>
+                    <span class="price">₹999</span>
+                    <span class="old-price">₹1599</span>
+                </p>
+
+                <button onclick="addToCart('Floral Dress',999)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">👟</div>
+
+                <h3>Sports Shoes</h3>
+
+                <p class="brand">Nike</p>
+
+                <p>
+                    <span class="price">₹2499</span>
+                    <span class="old-price">₹3999</span>
+                </p>
+
+                <button onclick="addToCart('Sports Shoes',2499)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">👜</div>
+
+                <h3>Leather Handbag</h3>
+
+                <p class="brand">Lavie</p>
+
+                <p>
+                    <span class="price">₹1399</span>
+                    <span class="old-price">₹1999</span>
+                </p>
+
+                <button onclick="addToCart('Leather Handbag',1399)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">⌚</div>
+
+                <h3>Smart Watch</h3>
+
+                <p class="brand">Noise</p>
+
+                <p>
+                    <span class="price">₹1799</span>
+                    <span class="old-price">₹2999</span>
+                </p>
+
+                <button onclick="addToCart('Smart Watch',1799)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
