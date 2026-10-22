@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow | Project Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+    <aside class="sidebar">
+        <h2 class="brand">Task<span>Flow</span></h2>
+        <p class="muted">WORKSPACE</p>
+        <button class="nav active">▦ Dashboard</button>
+        <button class="nav" onclick="showAllTasks()">☷ All Tasks</button>
+
+        <div class="project-heading">
+            <span>MY PROJECTS</span>
+            <button class="icon-btn" onclick="createProject()">+</button>
+        </div>
+        <div id="projectList"></div>
+
+        <div class="sidebar-bottom">
+            <div class="avatar">TF</div>
+            <div><strong>My Workspace</strong><small>Personal account</small></div>
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="topbar">
+            <div>
+                <p class="muted">WORKSPACE / OVERVIEW</p>
+                <h1>Project Dashboard</h1>
+            </div>
+            <button class="primary" onclick="openTaskModal()">+ New Task</button>
+        </header>
+
+        <section class="welcome">
+            <div>
+                <p class="eyebrow">YOUR WORKSPACE</p>
+                <h2>Make progress, one task at a time.</h2>
+                <p>Organize your work and keep your projects moving.</p>
+            </div>
+            <div class="welcome-icon">✦</div>
+        </section>
+
+        <section class="stats">
+            <article class="stat-card">
+                <span>Total Tasks</span><strong id="totalCount">0</strong>
+                <small>Across your workspace</small>
+            </article>
+            <article class="stat-card">
+                <span>To Do</span><strong id="todoCount">0</strong>
+                <small>Waiting to start</small>
+            </article>
+            <article class="stat-card">
+                <span>In Progress</span><strong id="progressCount">0</strong>
+                <small>Currently working on</small>
+            </article>
+            <article class="stat-card">
+                <span>Completed</span><strong id="doneCount">0</strong>
+                <small>Successfully finished</small>
+            </article>
+        </section>
+
+        <section class="board-section">
+            <div class="board-heading">
+                <div>
+                    <h2 id="boardTitle">All Tasks</h2>
+                    <p class="muted">Manage your work and track progress.</p>
+                </div>
+                <input id="searchInput" type="search"
+                       placeholder="Search tasks..."
+                       oninput="renderBoard()">
+            </div>
+
+            <div id="message" role="status"></div>
+
+            <div class="board">
+                <section class="column">
+                    <div class="column-heading">
+                        <span class="dot todo-dot"></span>
+                        <h3>To Do</h3><span class="count" id="todoBadge">0</span>
+                    </div>
+                    <div class="task-list" id="todoList"></div>
+                    <button class="add-task" onclick="openTaskModal('todo')">+ Add task</button>
+                </section>
+
+                <section class="column">
+                    <div class="column-heading">
+                        <span class="dot progress-dot"></span>
+                        <h3>In Progress</h3><span class="count" id="progressBadge">0</span>
+                    </div>
+                    <div class="task-list" id="progressList"></div>
+                    <button class="add-task" onclick="openTaskModal('progress')">+ Add task</button>
+                </section>
+
+                <section class="column">
+                    <div class="column-heading">
+                        <span class="dot done-dot"></span>
+                        <h3>Done</h3><span class="count" id="doneBadge">0</span>
+                    </div>
+                    <div class="task-list" id="doneList"></div>
+                    <button class="add-task" onclick="openTaskModal('done')">+ Add task</button>
+                </section>
+            </div>
+        </section>
+    </main>
+</div>
+
+<dialog id="taskDialog">
+    <form id="taskForm">
+        <div class="modal-heading">
+            <h2>Create a task</h2>
+            <button type="button" class="icon-btn"
+                    onclick="closeTaskModal()">✕</button>
+        </div>
+
+        <label for="taskTitle">Task title</label>
+        <input id="taskTitle" required maxlength="200"
+               placeholder="e.g. Design the homepage">
+
+        <label for="taskDescription">Description</label>
+        <textarea id="taskDescription"
+                  placeholder="What needs to be done?"></textarea>
+
+        <label for="taskProject">Project</label>
+        <select id="taskProject">
+            <option value="">No project</option>
+        </select>
+
+        <div class="form-row">
+            <div>
+                <label for="taskPriority">Priority</label>
+                <select id="taskPriority">
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+            <div>
+                <label for="taskStatus">Status</label>
+                <select id="taskStatus">
+                    <option value="todo">To Do</option>
+                    <option value="progress">In Progress</option>
+                    <option value="done">Done</option>
+                </select>
+            </div>
+        </div>
+
+        <label for="taskDueDate">Due date</label>
+        <input id="taskDueDate" type="date">
+
+        <p id="formError" class="error"></p>
+        <div class="modal-actions">
+            <button type="button" class="secondary"
+                    onclick="closeTaskModal()">Cancel</button>
+            <button type="submit" class="primary">Create Task</button>
+        </div>
+    </form>
+</dialog>
+
+<script src="script.js"></script>
+</body>
+</html>
